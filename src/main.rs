@@ -3,7 +3,7 @@ use std::io::Read;
 #[paw::main]
 fn main(args: paw::Args) -> std::io::Result<()> {
     let args = args.collect::<Vec<_>>();
-    if args.len() != 2 || args.iter().next().unwrap() == "--help" {
+    if args.len() != 2 || args.get(0).unwrap() == "--help" {
         println!("Usage: orion-encrypt \"pass phrase\" < plaintext > ciphertext");
         std::process::exit(1);
     }
